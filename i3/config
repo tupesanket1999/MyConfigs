@@ -229,6 +229,7 @@ hide_edge_borders both
 exec picom --config ~/.config/picom.conf -b   
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id dunst 
+exec pulseeffects --gapplication-service
 
 for_window[window_type="notification"] floating enable
 

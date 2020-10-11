@@ -1,5 +1,5 @@
 syntax on
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+
 set encoding=utf-8
 set tabstop=4
 set softtabstop=4
@@ -17,16 +17,6 @@ set incsearch
 set colorcolumn=80
 set showtabline=2
 set noshowmode
-
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-set laststatus=2
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
@@ -57,12 +47,14 @@ augroup autoformat_settings
     autocmd FileType java AutoFormatBuffer google-java-format
     autocmd FileType python AutoFormatBuffer yapf
 augroup END
-
 let g:prettier#autoformat = 0
-
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 call plug#end()
+
+
+let g:gruvbox_invert_selection='0'
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 call glaive#Install()
 Glaive codefmt plugin[mappings]
@@ -85,13 +77,10 @@ let g:ctrlp_custom_ignore = {
 let mapleader = " "
 
 let g:ctrlp_use_caching = 0
-let g:gruvbox_contrast_dark = 'hard'
-
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-let g:gruvbox_invert_selection='0'
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -109,5 +98,11 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap tl :tabn<CR>
 nnoremap th :tabp<CR>
-colorscheme gruvbox
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set laststatus=2
+hi Normal guibg=NONE ctermbg=NONE
+

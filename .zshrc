@@ -9,6 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+
 export ZSH="/home/sanket/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -16,9 +17,12 @@ export ZSH="/home/sanket/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="dracula"
 POWERLEVEL10K_MODE="nerdfont-complete"
 ZSH_DISABLE_COMPFIX=true
 
+alias chrome='google-chrome-stable'
+alias shut='sudo systemctl hibernate'
 run(){
        case $1 in 
            *.cpp)   g++ $1 && ./a.out ;;
@@ -113,7 +117,7 @@ ex(){
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting )
 
 ENABLE_CORRECTION="true"
 
@@ -174,6 +178,8 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+clear 
+#for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 export PATH=$PATH:/home/sanket/.local/bin
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -104,5 +104,6 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 set laststatus=2
+set bg=dark
 hi Normal guibg=NONE ctermbg=NONE
-
+"highlight ColorColumn ctermbg=0 guibg=darkgrey

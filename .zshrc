@@ -23,6 +23,11 @@ ZSH_DISABLE_COMPFIX=true
 
 alias chrome='google-chrome-stable'
 alias shut='sudo systemctl hibernate'
+
+snip(){
+  cp ~/cpp_snippet.cpp ./$1 && vim ./$1
+}
+
 run(){
        case $1 in 
            *.cpp)   g++ $1 && ./a.out ;;

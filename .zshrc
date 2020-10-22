@@ -24,8 +24,8 @@ ZSH_DISABLE_COMPFIX=true
 alias chrome='google-chrome-stable'
 alias shut='sudo systemctl hibernate'
 
-snip(){
-  cp ~/cpp_snippet.cpp ./$1 && vim ./$1
+vimc(){
+  cp ~/Code/cpp_snippet.cpp ./$1 && vim ./$1
 }
 
 run(){
@@ -43,10 +43,6 @@ then
 set --
 fi
 
-codeforces(){
-    cd ~/Code/codeforce/Pending
-    ls
-}
 
 ex(){
     case $1 in 
@@ -183,8 +179,8 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-clear 
 #for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 export PATH=$PATH:/home/sanket/.local/bin
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH=$PATH:/home/sanket/.gem/ruby/2.7.0/bin
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+clear

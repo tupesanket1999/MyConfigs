@@ -304,4 +304,4 @@ exec redshift
 exec --no-startup-id "sh -c 'sleep 10; exec alsactl restore'"
 #bar{}
 
-exec --no-startup-id i3-msg "workspace 1 Terminals; append_layout ./layout-MAIN_SCREEN.json"
+exec --no-startup-id i3-msg "workspace 1 Terminals; append_layout ~/.config/i3/layout-MAIN_SCREEN.json"

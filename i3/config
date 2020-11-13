@@ -117,14 +117,13 @@ set $ws3 "3 Coding"
 set $ws4 "4 File Manager"
 set $ws5 "5 Music"
 set $ws6 "6 Movies"
-set $ws7 "7"
+set $ws7 "7 "
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10 Social"
 
 workspace $ws1 gaps inner 10
 workspace $ws1 gaps outer 10
-
 
 workspace $ws2 gaps inner 4
 workspace $ws2 gaps outer 2
@@ -182,21 +181,30 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 exec vim
 
-exec terminator -e htop
-exec terminator  
-exec terminator --title=ranger -e ranger
-assign [class="Google-chrome"] $ws2
+exec terminator -T htop    -x htop
+exec terminator -T ranger  -x ranger
+exec terminator -T time    -x tty-clock -sbct
+exec terminator -T todo    -x vim ~/todo
+exec terminator -T console 
+#exec terminator --title=ranger -e ranger
+assign [class="Chromium"] $ws2
 assign [class="YoutubeMusic"] $ws5
-assign [title="ranger"] $ws4
-exec google-chrome-stable
-exec youtubemusic
+assign [class="vlc"] $ws6
+
+exec chromium
+#exec franz
+
+
 #exec thunar
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
+#
+#
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -228,7 +236,7 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5    # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
-exec_always feh --bg-scale ~/Pictures/deer.png
+exec_always feh --bg-scale ~/Pictures/deer.png_
 
 for_window [class="^.*"] border pixel 1                                         
 #gaps inner 4                                                  
@@ -255,6 +263,9 @@ exec echo root | sudo -S mount -t ntfs-3g /dev/sda5 /mnt/NewVolB
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+
+bindsym $mod + Shift + i exec ~/i3-layout-manager/layout_manager.sh
+
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
@@ -290,3 +301,7 @@ mode "$mode_gaps_outer" {
 }
 bindsym Print exec gnome-screenshot -i
 exec redshift
+exec --no-startup-id "sh -c 'sleep 10; exec alsactl restore'"
+#bar{}
+
+exec --no-startup-id i3-msg "workspace 1 Terminals; append_layout ./layout-MAIN_SCREEN.json"

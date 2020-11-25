@@ -7,7 +7,7 @@ shrink = no
 separator_height = 0
 padding = 32
 horizontal_padding = 32
-frame_width = 2
+frame_width = 1
 sort = no
 idle_threshold = 120
 font = rissole 8
@@ -21,14 +21,14 @@ ignore_newline = no
 stack_duplicates = false
 hide_duplicate_count = yes
 show_indicators = no
-icon_position = off
 sticky_history = yes
 history_length = 20
 browser = /usr/bin/firefox -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
-
+icon_path = /usr/share/icons/Tela-blue/16/status/:/usr/share/icons/Tela-blue/16/devices/
+icon_position = left
 [shortcuts]
 close = ctrl+space
 close_all = ctrl+shift+space
@@ -39,16 +39,17 @@ context = ctrl+shift+period
 timeout = 4
 background = "#141c21"
 foreground = "#93a1a1"
-frame_color = "#8bc34a"
+frame_color = "#0073CF"
 
 [urgency_normal]
 timeout = 8
 background = "#141c21"
 foreground = "#93a1a1"
-frame_color = "#ba68c8"
+frame_color = "#0073CF"
 
 [urgency_critical]
 timeout = 0
 background = "#141c21"
 foreground = "#93a1a1"
-frame_color = "#ff7043"
+frame_color = "#0073CF"
+
